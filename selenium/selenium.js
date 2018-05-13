@@ -13,8 +13,8 @@ function sleep(ms) {
 
   try {
     await driver.get('http://localhost:8000/');
-    driver.manage().window().maximize();
-    const res = await driver.findElement(By.tagName('button')).sendKeys('webdriver', Key.RETURN);
+
+    await sleep(1000);
 
     await driver.switchTo().frame('plaid-link-iframe-1');
     await sleep(1000);
@@ -36,8 +36,14 @@ function sleep(ms) {
     const submit = driver.findElement(By.xpath("html/body/div/div/div/div/div/div/form/button"));
     await submit.click();
 
+    await sleep(10000);
+    //*[@id="plaid-link-container"]/div/div/div/div/div/div[1]/input
+    //*[@id="plaid-link-container"]/div/div/div/div/div/div[2]/button
+    const finish = driver.findElement(By.xpath("html/body/div/div/div/div/div/div/div/button"));
+    await finish.click();
+
   } finally {
-    sleep(9000);
-    await driver.quit();
+    await sleep(1000);
+    // await driver.quit();
   }
 })();
