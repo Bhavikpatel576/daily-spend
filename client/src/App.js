@@ -8,6 +8,27 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import util from 'util';
 
+function BasicForm(props) {
+  return (
+    <div className='container'>
+    <section className='add-item'>
+        <form>
+          <input type="text" name="username" placeholder="What's your name?" />
+          <input type="email" name="email" placeholder="What's your email?" />
+          <input type="number" name="currentItem" placeholder="What your phone number?" />
+          <button>Add Item</button>
+        </form>
+    </section>
+    <section className='display-item'>
+      <div className='wrapper'>
+        <ul>
+        </ul>
+      </div>
+    </section>
+    </div>
+  );
+}
+
 class App extends Component {
 
   componentDidMount() {
@@ -29,6 +50,7 @@ class App extends Component {
     super(props);
   }
 
+  //where we send token to client server (firebase in our instance)
   handleOnSuccess(token, metadata) {
     util.makeRequest({
       parameters: {
@@ -60,9 +82,9 @@ class App extends Component {
         <Route name="home" exact path="/" component={HomePage} />
         <PlaidLink name="plaid-button"
           clientName="Plaid Client"
-          env="sandbox"
+          env="development"
           product={['auth', 'transactions']}
-          publicKey="614be98f819e9bd8d0db9abec1c08a"
+          publicKey="2d72a0b491537451ea42af02a76b30"
           className="some-class-name"
           apiVersion="v2"
           onSuccess={this.handleOnSuccess}
@@ -71,6 +93,7 @@ class App extends Component {
           onLoad={this.handleOnLoad}>
           Open Plaid Link button
         </PlaidLink>
+        <BasicForm />
       </div>
     </Router>
     );
