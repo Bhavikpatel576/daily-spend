@@ -8,6 +8,7 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import BasicForm from './components/Form';
 import util from 'util';
+import firebase from './firebase.js';
 
 
 // onChange={props.change} value={props.state.username}
@@ -15,12 +16,6 @@ import util from 'util';
 class App extends Component {
   constructor(props) {
     super(props);
-  }
-  
-  handleChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
   }
 
   componentDidMount() {
