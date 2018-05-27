@@ -6,30 +6,22 @@ import { browserHistory } from 'react-router';
 import HomePage from './components/HomePage';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
+import BasicForm from './components/Form';
 import util from 'util';
 
-function BasicForm(props) {
-  return (
-    <div className='container'>
-    <section className='add-item'>
-        <form>
-          <input type="text" name="username" placeholder="What's your name?" />
-          <input type="email" name="email" placeholder="What's your email?" />
-          <input type="number" name="currentItem" placeholder="What your phone number?" />
-          <button>Add Item</button>
-        </form>
-    </section>
-    <section className='display-item'>
-      <div className='wrapper'>
-        <ul>
-        </ul>
-      </div>
-    </section>
-    </div>
-  );
-}
+
+// onChange={props.change} value={props.state.username}
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+  
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
 
   componentDidMount() {
     this.callApi()
@@ -45,10 +37,6 @@ class App extends Component {
   
     return body;
   };
-
-  constructor(props) {
-    super(props);
-  }
 
   //where we send token to client server (firebase in our instance)
   handleOnSuccess(token, metadata) {
@@ -93,7 +81,7 @@ class App extends Component {
           onLoad={this.handleOnLoad}>
           Open Plaid Link button
         </PlaidLink>
-        <BasicForm />
+        <BasicForm/>
       </div>
     </Router>
     );
