@@ -6,9 +6,17 @@ import { browserHistory } from 'react-router';
 import HomePage from './components/HomePage';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
+import BasicForm from './components/Form';
 import util from 'util';
+import firebase from './firebase.js';
+
+
+// onChange={props.change} value={props.state.username}
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
 
   componentDidMount() {
     this.callApi()
@@ -25,10 +33,7 @@ class App extends Component {
     return body;
   };
 
-  constructor(props) {
-    super(props);
-  }
-
+  //where we send token to client server (firebase in our instance)
   handleOnSuccess(token, metadata) {
     util.makeRequest({
       parameters: {
@@ -60,9 +65,9 @@ class App extends Component {
         <Route name="home" exact path="/" component={HomePage} />
         <PlaidLink name="plaid-button"
           clientName="Plaid Client"
-          env="sandbox"
+          env="development"
           product={['auth', 'transactions']}
-          publicKey="614be98f819e9bd8d0db9abec1c08a"
+          publicKey="2d72a0b491537451ea42af02a76b30"
           className="some-class-name"
           apiVersion="v2"
           onSuccess={this.handleOnSuccess}
@@ -71,6 +76,7 @@ class App extends Component {
           onLoad={this.handleOnLoad}>
           Open Plaid Link button
         </PlaidLink>
+        <BasicForm/>
       </div>
     </Router>
     );

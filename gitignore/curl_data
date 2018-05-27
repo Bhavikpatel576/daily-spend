@@ -1,0 +1,8 @@
+#!/bin/bash
+
+curl -X POST https://tartan.plaid.com/connect \
+-d client_id=5af44c0e2a79300013658ed9 \
+-d secret=504f7ea23d48f54f517194608d34ee \
+-d username=bhavikpatel576 \
+-d password=1Nvest0r576 \
+-d type=chase
