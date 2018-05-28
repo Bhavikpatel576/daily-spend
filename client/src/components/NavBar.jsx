@@ -5,9 +5,9 @@ class NavBar extends Component {
     return (
       <header>
         <ul id="headerButtons">
-          <li className="navButton"><Link to="">Home</Link></li>
-          <li className="navButton"><Link to="">Settings</Link></li>
-          <li className="navButton"><Link to="">About</Link></li>
+          <li className="navButton"><Link to="/">Home</Link></li>
+          <li className="navButton"><Link to="/settings">Settings</Link></li>
+          <li className="navButton"><Link to="/about">About</Link></li>
         </ul>
       </header>
     )

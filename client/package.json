@@ -3,18 +3,41 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "babel-cli": "6.26.x",
+    "babel-core": "6.25.x",
+    "babel-eslint": "8.0.x",
+    "babel-loader": "7.1.x",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "6.5.x",
+    "babel-preset-react": "6.5.x",
+    "babel-preset-stage-0": "6.5.x",
+    "babel-register": "6.5.x",
+    "enzyme": "1.5.x",
+    "eslint": "3.12.x",
+    "eslint-plugin-react": "5.2.x",
+    "mocha": "2.3.x",
+    "prop-types": "^15.5.10",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-plaid-link": "^1.0.2",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "react-tools": "0.13.x",
+    "sinon": "1.17.x",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "2.8.2",
+    "xyz": "0.5.x"
   },
   "scripts": {
+    "dev": "webpack",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:8000/"
+  "proxy": "http://localhost:8000/",
+  "devDependencies": {
+    "babel-plugin-dynamic-import-node": "^1.2.0"
+  }
 }

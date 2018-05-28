@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import PlaidLink from 'react-plaid-link';
+
 class HomePage extends Component {
   render() {
     return (
-      <div class="home-page">
+      <div className="home-page">
         Daily spend application
       </div>
     )

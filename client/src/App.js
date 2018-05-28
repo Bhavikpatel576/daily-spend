@@ -7,7 +7,7 @@ import HomePage from './components/HomePage';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import BasicForm from './components/Form';
-import util from 'util';
+import makeRequest from 'util';
 import firebase from './firebase.js';
 
 
@@ -35,12 +35,15 @@ class App extends Component {
 
   //where we send token to client server (firebase in our instance)
   handleOnSuccess(token, metadata) {
-    util.makeRequest({
+    console.log(token);
+    console.log("-------------------");
+    console.log(metadata);
+    makeRequest({
       parameters: {
         token: token,
         metadata: metadata,
       },
-      url: 'https://clientwebsite.com/exchangeLinkToken/',
+      url: 'https://localhost:3000/exchangeLinkToken/',
       method: 'POST',
       onError: function() {},
       onLoad: function(statusCode, responseBody) {},
@@ -62,7 +65,6 @@ class App extends Component {
       <Router>
       <div>
         <NavBar />
-        <Route name="home" exact path="/" component={HomePage} />
         <PlaidLink name="plaid-button"
           clientName="Plaid Client"
           env="development"
@@ -76,8 +78,9 @@ class App extends Component {
           onLoad={this.handleOnLoad}>
           Open Plaid Link button
         </PlaidLink>
-        <BasicForm/>
+        <Route path="/settings" component={BasicForm} />
       </div>
+      
     </Router>
     );
   }
