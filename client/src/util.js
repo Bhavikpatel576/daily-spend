@@ -2,6 +2,7 @@
 
 // Makes a basic AJAX request with the given options
 var makeRequest = function(options) {
+  console.log("in trying to make a request")
   var defaultOptions = {
     contentType: 'application/json',
     method: 'post',
